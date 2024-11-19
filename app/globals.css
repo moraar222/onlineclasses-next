@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --hover-shadow-light: #646cffaa;
+  --hover-shadow-react: #61dafbaa;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,4 +20,49 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Center and constrain the main container */
+#root {
+  @apply max-w-screen-xl mx-auto p-8 text-center;
+}
+
+/* Logo styles with hover effects */
+.logo {
+  @apply h-24 p-6 transition-all;
+  will-change: filter;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--hover-shadow-light));
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em var(--hover-shadow-react));
+}
+
+/* Animation for spinning the logo */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Card styling */
+.card {
+  @apply p-8;
+}
+
+/* Subtle text color for specific sections */
+.read-the-docs {
+  @apply text-gray-500;
 }
